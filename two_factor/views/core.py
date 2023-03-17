@@ -35,7 +35,6 @@ from django_otp.plugins.otp_static.models import StaticDevice, StaticToken
 from django_otp.util import random_hex
 
 from two_factor import signals
-from two_factor.plugins.phonenumber.utils import get_available_phone_methods
 from two_factor.plugins.registry import registry
 from two_factor.utils import totp_digits
 from two_factor.views.mixins import OTPRequiredMixin
@@ -686,7 +685,7 @@ class SetupCompleteView(TemplateView):
 
     def get_context_data(self):
         return {
-            'phone_methods': get_available_phone_methods(),
+            'phone_methods': [],
         }
 
 
